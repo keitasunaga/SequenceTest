@@ -14,3 +14,7 @@ Run the following command to create a new Expo project with specific versions fo
 
 ```bash
 npx create-expo-app MyNewApp --template expo-template-blank@51.0.0
+
+### 2. Run the Expo Project
+```bash
+npx expo start
