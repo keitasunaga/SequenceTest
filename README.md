@@ -18,7 +18,7 @@
 Expoプロジェクトを作成し、特定のExpo SDKおよびReact Nativeのバージョンを指定するために、以下のコマンドを使用します。
 
 ```bash
-npx create-expo-app SequenceTest --template expo-template-blank@51.0.0
+npx create-expo-app SequenceTest
 npm install react-native-web@~0.19.10 react-dom@18.2.0 @expo/metro-runtime@~3.2.3
 ```
 
@@ -58,4 +58,27 @@ npm install react-native-web@~0.19.10 react-dom@18.2.0 @expo/metro-runtime@~3.2.
 
    ```bash
    watchman watch-del-all 
+   ```
+4. 利用ライブラリ
+   | ライブラリ名                             | 開発者             | 役割                                                                                     |
+   |------------------------------------------|--------------------|------------------------------------------------------------------------------------------|
+   | `@0xsequence/waas`                       | 0xSequence         | Sequence Wallet as a Service (WaaS) SDKで、ウォレットの作成、管理、トランザクションの送信など、ブロックチェーンウォレットの機能を提供します。 |
+   | `@0xsequence/react-native`               | 0xSequence         | React Native向けのSequence SDKで、モバイルアプリケーションでのウォレット機能の統合を容易にします。 |
+   | `ethers@5.7.2`                           | Richard Moore      | Ethereumと対話するための軽量なJavaScriptライブラリで、スマートコントラクトのデプロイやトランザクションの送信などをサポートします。 |
+   | `react-native-quick-crypto`              | Margelo            | React Native環境でNode.jsの`crypto`モジュールを高速に実装したライブラリで、暗号化機能を提供します。 |
+   | `react-native-mmkv`                      | Marc Rousavy       | 高速なキー・バリュー型のストレージを提供するライブラリで、React Nativeアプリでのデータ保存に使用されます。 |
+   | `react-native-keychain`                  | Joel Arvidsson     | iOSのKeychainとAndroidのKeystoreにアクセスし、パスワードやトークンなどの機密情報を安全に保存・取得するためのライブラリです。 |
+   | `babel-plugin-module-resolver`           | Twin               | Babelのプラグインで、モジュールのインポートパスをエイリアス化し、コードの可読性と保守性を向上させます。 |
+   | `expo-web-browser`                       | Expo               | システムのWebブラウザを使用してURLを開くためのAPIを提供し、リダイレクトの処理もサポートします。 |
+   | `expo-auth-session`                      | Expo               | Webブラウザベースの認証（例：OAuthフロー）をアプリに統合するためのライブラリで、`expo-web-browser`上に構築されています。 |
+   | `@invertase/react-native-apple-authentication` | Invertase     | iOSおよびAndroidでのApple認証（Sign in with Apple）をサポートするReact Nativeライブラリです。 |
+   | `react-native-url-polyfill`              | Charles Mangwa     | React Native環境でのURLとURLSearchParamsのポリフィルを提供し、標準的なURL操作を可能にします。 |
+   | `web-streams-polyfill`                   | Mattias Buelens    | WHATWG Streams標準のポリフィルで、ストリームAPIをサポートしていない環境での使用を可能にします。 |
+
+
+   ```bash
+   npm install @0xsequence/waas ethers@latest
+   npm install @0xsequence/react-native react-native-quick-crypto react-native-mmkv react-native-keychain babel-plugin-module-resolver
+   npm install expo-web-browser expo-auth-session @invertase/react-native-apple-authentication
+   npm install react-native-url-polyfill web-streams-polyfill     
    ```
