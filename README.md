@@ -8,7 +8,7 @@
 ## はじめに
 
 ### 前提条件
-- [Node.js](https://nodejs.org/)をインストールしてください（未インストールの場合）。
+- [Node.js](https://nodejs.org/)をインストールしてください（未インストールの場合）。node18 or 20推奨
 - Expo CLIをグローバルにインストールするのも便利です（任意）:
   ```bash
   npm install -g expo-cli
@@ -19,11 +19,13 @@ Expoプロジェクトを作成し、特定のExpo SDKおよびReact Nativeの�
 
 ```bash
 npx create-expo-app SequenceTest --template expo-template-blank@51.0.0
+npm install react-native-web@~0.19.10 react-dom@18.2.0 @expo/metro-runtime@~3.2.3
 ```
 
 - `npx create-expo-app`は、Expoプロジェクトをセットアップするためのコマンドです。
 - `SequenceTest`はプロジェクト名で、任意の名前に変更できます。
 - `expo-template-blank@51.0.0`は、Expo SDK 51.0.0を指定するためのテンプレートです。これにより、対応するReact Nativeバージョン（この場合は0.74.3）も自動的に設定されます。
+- `react-native-web@~0.19.10`は、WEBで開発するために入れています。必要がない場合は入れなくてOK
 
 このコマンドを実行すると、指定のバージョンでExpoプロジェクトが作成されます。
 
@@ -47,3 +49,13 @@ npx create-expo-app SequenceTest --template expo-template-blank@51.0.0
      - [Expo Go for iOS](https://apps.apple.com/app/expo-go/id982107779)
      - [Expo Go for Android](https://play.google.com/store/apps/details?id=host.exp.exponent)
    - **シミュレータでテストする場合**: ターミナルで`i`または`a`を入力して、iOSまたはAndroidのシミュレータでアプリを起動します。シミュレータのセットアップが完了していない場合は、追加の設定が必要です。
+
+3. **Error Tips**
+   - **Error: EMFILE: too many open files**: 監視しているファイルが多すぎるので、watchmanを入れるか、watchmanが監視しているファイルをリセットすること
+   ```bash
+   brew install watchman
+   ```
+
+   ```bash
+   watchman watch-del-all 
+   ```
